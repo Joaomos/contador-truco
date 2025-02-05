@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="main-content">
+        <section class="section1">
+            <div class="div-content1">
+                <input type="name" name="nome" id="nome" value="Jogador 1" class="section1-content">
+                <h1 class="section1-content" id="contador1">0</h1>
+                <button class="btn-contador-vitorias"><img src="img/copo.png" alt="botao" class="taca-contador-vitorias"><h3 id="contador-vitorias1">0</h3></button>
+                <button class="card-btn card-button1" id="card-btn1">
+                    <img src="img/carta paus.jpg" alt="carta paus" class="card-btn1">
+                </button>
+                <input type="button" value="- 1" class="section1-content btn-decrescente btn-decrescente1" id="btn-decrescente1">
+            </div>
+
+            <div class="div-content2">
+                <input type="name" name="nome" id="nome" value="Jogador 2" class="section1-content">
+                <h1 class="section1-content" id="contador2">0</h1>
+                <button class="btn-contador-vitorias2"><h3 id="contador-vitorias2">0</h3><img src="img/copo.png" alt="botao" class="taca-contador-vitorias2"></button>
+                <button class="card-btn card-button2" id="card-btn2">
+                    <img src="img/carta paus.jpg" alt="carta paus" class="card-btn2">
+                </button>
+                <input type="button" value="- 1" class="section1-content btn-decrescente btn-decrescente2" id="btn-decrescente2">
+            </div>
+        </section>
+    
+        <section class="section2">
+            <button class="botao-truco botao-truco-copas">
+                    <img src="img/copas.png" alt="simbolo copas" class="truco-img" onclick="mudarParaSeis()">
+                    
+                    <h3 class="truco-h3" onclick="mudarParaSeis()">TRUUUCO!</h3>
+                    
+                    <img src="img/copas.png" alt="simbolo copas" class="truco-img" onclick="mudarParaSeis()">
+            </button>
+           
+
+            <button class="botao-truco botao-truco-espada">
+                <img src="img/espada.png" alt="simbolo copas" class="truco-img" onclick="mudarParaNove()">
+
+                <h3 class="truco-h3" onclick="mudarParaNove()">SEIIIS!</h3>
+
+                <img src="img/espada.png" alt="simbolo copas" class="truco-img" onclick="mudarParaNove()">
+            </button>
+
+            <button class="botao-truco botao-truco-ouro">
+                <img src="img/ouro.png" alt="simbolo copas" class="truco-img" onclick="mudarParaDoze()">
+
+                <h3 class="truco-h3" onclick="mudarParaDoze()">NOVEEE!</h3>
+
+                <img src="img/ouro.png" alt="simbolo copas" class="truco-img" onclick="mudarParaDoze()">
+            </button>
+
+            <button class="botao-truco botao-truco-paus12">
+                <img src="img/paus.png" alt="simbolo paus" class="truco-img" onclick="mostrarBtnCampeao()">
+
+                <h3 class="truco-h3" onclick="mostrarBtnCampeao()">DOOOZE!</h3>
+
+                <img src="img/paus.png" alt="simbolo paus" class="truco-img" onclick="mostrarBtnCampeao()">
+            </button>
+
+            <button class="botao-truco botao-campeao">
+                <img src="img/copo.png" alt="simbolo paus" class="truco-img" onclick="voltarParaTruco()">
+
+                <h3 class="truco-h3" onclick="voltarParaTruco()">CAMPEÃO!</h3>
+
+                <img src="img/copo.png" alt="simbolo paus" class="truco-img" onclick="voltarParaTruco()">
+            </button>
+
+            <div class="botoes-zerar">
+                <input type="button" value="ZERAR PONTOS" id="zerar-pontos" class="btn-zerar-pontos">
+                <input type="button" value="ZERAR VITÓRIAS" id="zerar-vitorias" class="btn-zerar-vitorias">
+            </div>
+
+            <div class="alterar-numero-soma-pontos um"></div>
+        </section>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
