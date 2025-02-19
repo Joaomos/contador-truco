@@ -25,7 +25,11 @@ const btnZerarVitorias = document.querySelector('#zerar-vitorias');
 
 const alterarNumeroSomaPontos = document.querySelector('.alterar-numero-soma-pontos');
 
+const closeBtn = document.querySelector('#close-btn');
+const vitoriaJ = document.querySelector('.vitoriaj');
+
 let controleContadorVitorias = 0;
+
 
 function aumentarPontosJogador1() {
     let numero = parseInt(pontuacaoJogador1.textContent);
@@ -43,22 +47,25 @@ function aumentarPontosJogador1() {
     }
 
     if (controleContadorVitorias == 0) {
+
         if (pontuacaoJogador1.textContent > 12) {
             let numero2 = parseInt(contadorVitoriasJogador1.textContent);
             contadorVitoriasJogador1.textContent = numero2 + 1;
+            abrirVitoriaJ();
             controleContadorVitorias = 1;
-        }
+        } 
+        
     }
-
+    
     if (pontuacaoJogador1.textContent < 2) {
         controleContadorVitorias = 0;
     }
-
+    
 }
 
 function aumentarPontosJogador2() {
     let numero = parseInt(pontuacaoJogador2.textContent);
-
+    
     if (alterarNumeroSomaPontos.classList.contains('um')) {
         pontuacaoJogador2.textContent = numero + 1;
     } else if (alterarNumeroSomaPontos.classList.contains('tres')) {
@@ -70,15 +77,16 @@ function aumentarPontosJogador2() {
     } else if (alterarNumeroSomaPontos.classList.contains('doze')) {
         pontuacaoJogador2.textContent = numero + 12;
     }
-
+    
     if (controleContadorVitorias == 0) {
         if (pontuacaoJogador2.textContent > 12) {
             let numero2 = parseInt(contadorVitoriasJogador2.textContent);
             contadorVitoriasJogador2.textContent = numero2 + 1;
+            abrirVitoriaJ();
             controleContadorVitorias = 1;
         }
     }
-
+    
     if (pontuacaoJogador2.textContent < 2) {
         controleContadorVitorias = 0;
     }
@@ -118,7 +126,7 @@ function mudarParaSeis() {
     
     btnTruco.style.display = "none";
     btnTrucoSeis.style.display = "flex";
-
+    
     alterarNumeroSomaPontos.classList.remove('um');
     alterarNumeroSomaPontos.classList.add('tres');
 }
@@ -126,10 +134,10 @@ function mudarParaSeis() {
 function mudarParaNove() {
     btnAumentarPontos1.innerHTML = `<img src="img/carta espadilha.jpg" alt="carta espadilha" class="card-btn1 carta-espadilha">`;
     btnAumentarPontos2.innerHTML = `<img src="img/carta espadilha.jpg" alt="carta espadilha" class="card-btn2">`;
-
+    
     btnTrucoSeis.style.display = "none";
     btnTrucoNove.style.display = "flex";
-
+    
     alterarNumeroSomaPontos.classList.remove('tres');
     alterarNumeroSomaPontos.classList.add('seis');
 }
@@ -137,10 +145,10 @@ function mudarParaNove() {
 function mudarParaDoze() {
     btnAumentarPontos1.innerHTML = `<img src="img/carta ouro.jpg" alt="carta ouro" class="card-btn1">`;
     btnAumentarPontos2.innerHTML = `<img src="img/carta ouro.jpg" alt="carta ouro" class="card-btn2">`;
-
+    
     btnTrucoNove.style.display = "none";
     btnTrucoDoze.style.display = "flex";
-
+    
     alterarNumeroSomaPontos.classList.remove('seis');
     alterarNumeroSomaPontos.classList.add('nove');
 }
@@ -148,10 +156,10 @@ function mudarParaDoze() {
 function mostrarBtnCampeao() {
     btnAumentarPontos1.innerHTML = `<img src="img/carta paus 12.jpg" alt="carta paus" class="card-btn1">`;
     btnAumentarPontos2.innerHTML = `<img src="img/carta paus 12.jpg" alt="carta paus" class="card-btn2">`;
-
+    
     btnTrucoDoze.style.display = "none";
     btnTrucoCampeao.style.display = "flex";
-
+    
     alterarNumeroSomaPontos.classList.remove('nove');
     alterarNumeroSomaPontos.classList.add('doze');
 }
@@ -165,7 +173,7 @@ function voltarParaTruco() {
     btnTrucoDoze.style.display = "none";
     btnTrucoCampeao.style.display = "none";
     btnTruco.style.display = "flex";
-
+    
     alterarNumeroSomaPontos.classList.remove('tres');
     alterarNumeroSomaPontos.classList.remove('seis');
     alterarNumeroSomaPontos.classList.remove('nove');
@@ -182,6 +190,20 @@ function zerarPontos() {
 function zerarVitorias() {
     contadorVitoriasJogador1.textContent = 0;
     contadorVitoriasJogador2.textContent = 0;
+}
+
+function abrirVitoriaJ() {
+    const nomeJogador1 = document.getElementById('nome1').value.trim();
+    const nomeJogador2 = document.getElementById('nome2').value.trim();
+    
+
+    if (nomeJogador1 === "Jotinha" || nomeJogador2 === "Jotinha") {
+        vitoriaJ.style.display = 'flex';
+    }
+}
+
+function fecharVitoriaJ() {
+    vitoriaJ.style.display = 'none';
 }
 
 document.addEventListener('click', function (e) {
@@ -230,5 +252,9 @@ document.addEventListener('click', function (e) {
 
     if(el.classList.contains('botao-campeao')) {
         voltarParaTruco();
+    }
+
+    if(el.classList.contains('closebtn')) {
+        fecharVitoriaJ();
     }
 })
